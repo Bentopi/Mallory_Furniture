@@ -1,0 +1,11 @@
+<h1>Product List</h1>
+
+<ul>
+    <% @product_list.each do |product| %>
+    <% if (product.quantity.to_i > 0) && (product.category == params[:id]) %>
+    <li><%= link_to "#{product.name}", product_path(id: product.id)%></li>
+    <%elsif product.quantity.to_i > 0 && (params[:id] == "all") %>
+    <li><%= link_to "#{product.name}", product_path(id: product.id)%></li>
+    <%end%>
+    <%end%>
+</ul>

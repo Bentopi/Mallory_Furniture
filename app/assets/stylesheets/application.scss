@@ -1,0 +1,59 @@
+@import "bootstrap";
+@import "bootstrap-sprockets";
+$mainColor: #2E3E4F;
+.header {
+    margin-top: 15px;
+    margin-bottom: 10px;
+    background: $mainColor;
+    a {
+        &:hover {
+            text-decoration: none;
+        }
+    }
+    .company_name {
+        color: #FEFBFD;
+        text-decoration: none;
+        &:hover {
+            text-decoration: none;
+            color: #FEFBFD;
+        }
+    }
+}
+.jumbo {
+    height: 100vh; //visual height units
+    border: 1px solid #000000;
+    background: image_url("hero.jpg");
+    background-size: cover; // scale as the .jumbo grows and shrinks
+    background-position: center; // center the bg instead of putting at top-left
+    .littlebox {
+        float: right;
+        margin-top: 30vh;
+        margin-right: 50px;
+        padding: 5px;
+        .faded > small {
+            color: #FEFBFD;
+        }
+        a {
+            display: block;
+            text-align: center;
+        }
+    }
+}
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin-top: 2px;
+    padding-bottom: 5px;
+    background: $mainColor;
+    .footer_links {
+        line-height: 15px;
+        color: #FEFBFD;
+        text-decoration: none;
+        &:hover {
+            text-decoration: none;
+            color: #FEFBFD;
+        }
+    }
+}

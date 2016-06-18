@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  root 'home#index'
+  get 'category/:id' => 'products#list', as: :category
+  get 'products/:id' => 'products#detail', as: :product
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -1,0 +1,35 @@
+<h1>Products Detail</h1>
+
+<h1><%= @product.name %></h1>
+<ul>
+    <li><%= @product.name %></li>
+    <li><%= @product.description %></li>
+    <% if @product.condition == "good" %>
+    <li><%= number_to_currency @product.price %>
+        Now
+        <%= number_to_currency (@product.price.to_i*0.9) %>
+        On Sale 10% Off!
+    </li>
+    <% elsif @product.condition == "average" %>
+    <li><%= number_to_currency @product.price %>
+        Now
+        <%= number_to_currency (@product.price.to_i*0.8) %>
+        On Sale 20% Off!
+    </li>
+<% else  %>
+    <li><%= number_to_currency @product.price %></li>
+    <% end %>
+    <li><%= @product.condition %>
+        condition</li>
+    <li><%= @product.dimensions[0] %>"W x
+        <%= @product.dimensions[1] %>"L x
+        <%= @product.dimensions[2] %>"H</li>
+    <li><%= @product.quantity %>
+        left in stock.</li>
+    <li>See more from the
+        <%= @product.category %></li>
+</ul>
+
+<div class="image">
+    <%= image_tag 'products/'+@product.photo, class: "img-rounded"%>
+</div>
