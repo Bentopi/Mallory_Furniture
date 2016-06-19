@@ -8,26 +8,27 @@
     </head>
     <body>
         <div class="container-fluid">
-            <div class="row header">
-                <a href="/">
+            <a href="/">
+                <div class="row header">
                     <div class="col-xs-12 text-center">
                         <h1 class="company_name">Mallory Furniture</h1>
-                    </a>
-
+                    </div>
                 </div>
-            </div>
+            </a>
         </div>
-        <%= yield %>
+
+            <%= yield %>
+        <div class="footer_pad"></div>
         <div class="container-fluid">
             <footer>
-              <div class="row footer">
-                  <% @unique_categories.each do |category| %>
-                  <div class="col-xs-2 categories text-center">
-                      <h3>
-                          <%= link_to category.titlecase, category_path(id: category), class:"footer_links" %></h3>
-                  </div>
-                  <% end %>
-              </div>
+                <div class="row footer">
+                    <% @unique_categories.each do |category| %>
+                    <div class="col-xs-2 categories text-center">
+                        <h3>
+                            <%= link_to category.titlecase, category_path(id: category), class:"footer_links" %></h3>
+                    </div>
+                    <% end %>
+                </div>
 
             </footer>
         </div>

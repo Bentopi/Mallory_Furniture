@@ -1,35 +1,40 @@
-<h1>Products Detail</h1>
+<div class="container-fluid yield">
+<div class="row">
+    <div class="col-xs-8">
+        <div class="image thumbnail">
+            <%= image_tag 'products/'+@product.photo, class: "img-rounded img-detail"%>
+        </div>
+    </div>
+    <div class="col-xs-4 info">
+        <h1 class="name"><%= @product.name %></h1>
+        <h3 class="price">Price</h3>
+          <% if @product.condition == "good" %>
+            <%= number_to_currency (@product.price.to_i*0.9) %>
+            Marked down 10%!
+          <% elsif @product.condition == "average" %>
+            <%= number_to_currency (@product.price.to_i*0.8) %>
+            Marked down 20%!
+          <% else  %>
+            <%= number_to_currency @product.price %>
+          <% end %>
+        <h3 class="description">Description</h3>
+          <%= @product.description %>
+        <br>
+        <h3 class="dimensions">Dimensions</h3>
+        <p>
+            Width:
+            <%= @product.dimensions[0] %>"
+        </p>
 
-<h1><%= @product.name %></h1>
-<ul>
-    <li><%= @product.name %></li>
-    <li><%= @product.description %></li>
-    <% if @product.condition == "good" %>
-    <li><%= number_to_currency @product.price %>
-        Now
-        <%= number_to_currency (@product.price.to_i*0.9) %>
-        On Sale 10% Off!
-    </li>
-    <% elsif @product.condition == "average" %>
-    <li><%= number_to_currency @product.price %>
-        Now
-        <%= number_to_currency (@product.price.to_i*0.8) %>
-        On Sale 20% Off!
-    </li>
-<% else  %>
-    <li><%= number_to_currency @product.price %></li>
-    <% end %>
-    <li><%= @product.condition %>
-        condition</li>
-    <li><%= @product.dimensions[0] %>"W x
-        <%= @product.dimensions[1] %>"L x
-        <%= @product.dimensions[2] %>"H</li>
-    <li><%= @product.quantity %>
-        left in stock.</li>
-    <li>See more from the
-        <%= @product.category %></li>
-</ul>
-
-<div class="image">
-    <%= image_tag 'products/'+@product.photo, class: "img-rounded"%>
+        <p>
+            Length:
+            <%= @product.dimensions[1] %>"
+        </p>
+        <p>
+            Height:
+            <%= @product.dimensions[2] %>"
+        </p>
+    <a href="/category/<%=@product.category%>" class="btn-lg btn-primary btn-block text-center" role="button">Back to <%=@product.category%></a>
+    </div>
+</div>
 </div>

@@ -1,11 +1,60 @@
-<h1>Product List</h1>
-
-<ul>
+<div class="container-fluid yield">
+<div class="row">
     <% @product_list.each do |product| %>
+
     <% if (product.quantity.to_i > 0) && (product.category == params[:id]) %>
-    <li><%= link_to "#{product.name}", product_path(id: product.id)%></li>
+    <div class="col-xs-3 well-sm">
+        <div class="product_list_container thumbnail">
+            <a href="/products/<%=product.id%>">
+                <div class="image thumbnail">
+                    <%= image_tag 'products/'+product.photo, class: "img-rounded"%>
+                </div>
+            </a>
+            <h4><%= link_to "#{product.name}", product_path(id: product.id), class: "product_name"%>
+                <br>
+                <!-- I was trying to do this part in the products controller, and it just wasn't happening -->
+                <small>
+                    <% if product.condition == "good" %>
+                    <%= number_to_currency (product.price.to_i*0.9) %>
+                    Marked down 10%!
+                    <% elsif product.condition == "average" %>
+                    <%= number_to_currency (product.price.to_i*0.8) %>
+                    Marked down 20%!
+                <% else  %>
+                    <%= number_to_currency product.price %>
+                    <% end %>
+                </small>
+            </h4>
+            <a href="/products/<%=product.id%>" class="btn btn-default" role="button">More Info</a>
+        </div>
+    </div>
     <%elsif product.quantity.to_i > 0 && (params[:id] == "all") %>
-    <li><%= link_to "#{product.name}", product_path(id: product.id)%></li>
+    <div class="col-xs-3 well-sm">
+        <div class="product_list_container thumbnail">
+            <a href="/products/<%=product.id%>">
+                <div class="image thumbnail">
+                    <%= image_tag 'products/'+product.photo, class: "img-rounded"%>
+                </div>
+            </a>
+            <h4><%= link_to "#{product.name}", product_path(id: product.id), class: "product_name"%>
+                <br>
+                <!-- I was trying to do this part in the products controller, and it just wasn't happening -->
+                <small>
+                    <% if product.condition == "good" %>
+                    <%= number_to_currency (product.price.to_i*0.9) %>
+                    Marked down 10%!
+                    <% elsif product.condition == "average" %>
+                    <%= number_to_currency (product.price.to_i*0.8) %>
+                    Marked down 20%!
+                <% else  %>
+                    <%= number_to_currency product.price %>
+                    <% end %>
+                </small>
+            </h4>
+            <a href="/products/<%=product.id%>" class="btn btn-default">More Info</a>
+        </div>
+    </div>
     <%end%>
     <%end%>
-</ul>
+</div>
+</div>

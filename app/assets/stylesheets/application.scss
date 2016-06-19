@@ -1,6 +1,9 @@
 @import "bootstrap";
 @import "bootstrap-sprockets";
 $mainColor: #2E3E4F;
+body {
+  font-family: "Times New Roman", Times, serif;
+}
 .header {
     margin-top: 15px;
     margin-bottom: 10px;
@@ -30,12 +33,19 @@ $mainColor: #2E3E4F;
         margin-top: 30vh;
         margin-right: 50px;
         padding: 5px;
+        .title{
+          font-size: 50px;
+        }
         .faded > small {
+            font-size: 25px;
             color: #FEFBFD;
         }
         a {
             display: block;
             text-align: center;
+        }
+        .main-btn {
+          font-size: 20px;
         }
     }
 }
@@ -44,7 +54,6 @@ $mainColor: #2E3E4F;
     bottom: 0;
     left: 0;
     right: 0;
-    margin-top: 2px;
     padding-bottom: 5px;
     background: $mainColor;
     .footer_links {
@@ -56,4 +65,43 @@ $mainColor: #2E3E4F;
             color: #FEFBFD;
         }
     }
+}
+.product_list_container {
+    height: 440px;
+    padding: 10px;
+    // border: 1px solid #DDDDDD;
+    // border-radius: 5px;
+    .image {
+        max-width: 100%;
+        margin:auto;
+    }
+}
+.footer_pad {
+    padding-bottom: 50px;
+}
+.product_name {
+    padding: 5px;
+    color: black;
+    text-decoration: none;
+    &:hover {
+        text-decoration: none;
+    }
+}
+.yield {
+    margin-left: 40px;
+    margin-right: 40px;
+  }
+.info {
+  .name{
+    background-color: #F2C40D;
+  }
+  .price{
+    background-color: #BFF6EB;
+  }
+  .description{
+    background-color: #EEEEEE;
+  }
+  .dimensions{
+    background-color: #EEEEEE;
+  }
 }
