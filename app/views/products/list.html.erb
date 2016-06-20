@@ -6,8 +6,8 @@
     <div class="col-xs-3 well-sm">
         <div class="product_list_container thumbnail">
             <a href="/products/<%=product.id%>">
-                <div class="image thumbnail">
-                    <%= image_tag 'products/'+product.photo, class: "img-rounded"%>
+                <div>
+                    <%= image_tag 'products/'+product.photo, class: "img-rounded image"%>
                 </div>
             </a>
             <h4><%= link_to "#{product.name}", product_path(id: product.id), class: "product_name"%>
@@ -31,11 +31,11 @@
     <%elsif product.quantity.to_i > 0 && (params[:id] == "all") %>
     <div class="col-xs-3 well-sm">
         <div class="product_list_container thumbnail">
-            <a href="/products/<%=product.id%>">
-                <div class="image thumbnail">
-                    <%= image_tag 'products/'+product.photo, class: "img-rounded"%>
-                </div>
-            </a>
+          <a href="/products/<%=product.id%>">
+              <div>
+                  <%= image_tag 'products/'+product.photo, class: "img-rounded image"%>
+              </div>
+          </a>
             <h4><%= link_to "#{product.name}", product_path(id: product.id), class: "product_name"%>
                 <br>
                 <!-- I was trying to do this part in the products controller, and it just wasn't happening -->
